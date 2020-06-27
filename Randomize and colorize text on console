@@ -1,0 +1,34 @@
+#include<iostream>
+#include<iomanip>
+#include<stack>
+#include <string>
+#include <time.h>
+#include <Windows.h>
+#include <stdlib.h>
+using namespace std;
+
+void animation(string obj)
+{
+	srand(time(NULL));
+	HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
+	const int size1 = size(obj);
+		for (int i =  1 ; i < size1; i++)
+		{
+				int k = rand() % 255 + 1;
+				SetConsoleTextAttribute(hConsole, k);
+				for (int j = i; j > 0; j--)
+				{	
+					obj[i] = toupper(obj[i]);
+					system("CLS");
+					cout << obj << endl; 
+					obj[j] = tolower(obj[j]);
+					Sleep(100);
+				}
+		}
+}
+
+int main()
+{
+	animation("tariz shahid aka evilbot");
+system("pause");
+}
